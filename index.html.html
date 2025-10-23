@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClassLink</title>
+  <link rel="stylesheet" href="system.css" />
+</head>
+<body>
+
+  <!-- =========================================
+       LOGIN PAGE (DEFAULT VISIBLE)
+  ========================================== -->
+  <div class="login-container" id="loginPage">
+    <div class="left-panel">
+      <img src="logo.png" alt="School Logo" class="logo" />
+      <h2>Sign in</h2>
+      <form id="loginForm" onsubmit="login(event)">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter username" required />
+
+        <label for="password">Password</label>
+        <div class="password-wrapper">
+          <input type="password" id="password" placeholder="Enter password" required />
+          <span class="toggle-password" onclick="togglePassword()">👁️</span>
+        </div>
+
+        <p id="error-msg" style="color:red; font-size:14px;"></p>
+
+        <button type="submit">Sign in</button>
+      </form>
+    </div>
+
+    <div class="right-panel">
+      <h1>Student Management<br>System</h1>
+      <a href="#">A friendly academic website</a>
+    </div>
+  </div>
+
+  <!-- =========================================
+       STUDENT DASHBOARD (HIDDEN BY DEFAULT)
+  ========================================== -->
+  <div class="student-dashboard" id="studentDashboard" style="display: none;">
+    <aside class="sidebar">
+      <div class="profile">
+        <div class="initials">FS</div>
+        <p class="name">Francesca Jellaine Sabarez</p>
+        <p class="email">240110793</p>
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">SMS Profile</a></li>
+          <li><a href="#">Module Grant</a></li>
+          <li><a href="#">Permit</a></li>
+          <li><a href="#">Semestral Grade</a></li>
+        </ul>
+      </nav>
+
+      <button class="logout-btn" onclick="logout()">Log out</button>
+    </aside>
+
+    <main class="main-content">
+      <div class="top-bar">
+        <div class="menu-heading">
+          <span id="menu-button">&#9776;</span>
+          <h2>Dashboard</h2>
+        </div>
+        <span id="clock"></span>
+      </div>
+
+      <div class="card">
+        <h3>Francesca Jellaine Peralta Sabarez</h3>
+        <p><strong>Course:</strong> Bachelor of Science in Information Technology</p>
+        <p><strong>Admission Type:</strong> New Regular</p>
+        <p><strong>Student ID:</strong> 240110793</p>
+        <p><strong>Year Level:</strong> 2nd Year College</p>
+      </div>
+
+      <div class="card">
+        <h3>Adviser</h3>
+        <p><strong>Name:</strong></p>
+        <p><strong>Section:</strong> BSIT 21020</p>
+      </div>
+
+      <div class="card announcement">
+        <h3>Announcement</h3>
+        <p>ATTENTION!</p>
+      </div>
+    </main>
+  </div>
+
+  <!-- =========================================
+       FACULTY DASHBOARD (HIDDEN BY DEFAULT)
+  ========================================== -->
+  <div class="faculty-dashboard" id="facultyDashboard" style="display: none;">
+    <div class="sidebar faculty-sidebar">
+      <div class="profile">
+        <div class="initials">FA</div>
+        <h3>Faculty</h3>
+        <p class="email">faculty123@bcp.edu.ph</p>
+      </div>
+
+      <ul>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Section</a></li>
+        <li><a href="#">Attendance</a></li>
+        <li><a href="#">Class List</a></li>
+        <li><a href="#">Grade Submission</a></li>
+        <li><a href="#">Message</a></li>
+        <li><a href="#">Profile</a></li>
+      </ul>
+
+      <button class="logout-btn" onclick="logout()">Log out</button>
+    </div>
+
+    <div class="main-content">
+      <div class="top-bar">
+        <h1>Faculty Dashboard</h1>
+        <p id="clock"></p>
+      </div>
+
+      <div class="card-container">
+        <div class="card">
+          <h2>Faculty Info</h2>
+          <p><strong>Name:</strong> Faculty</p>
+          <p><strong>Department:</strong> Information Technology</p>
+          <p><strong>Faculty ID:</strong> 987654</p>
+        </div>
+
+        <div class="card">
+          <h2>Advisory Section</h2>
+          <p><strong>Section:</strong> BSIT 21020</p>
+          <p><strong>Year Level:</strong> 2nd Year</p>
+        </div>
+      </div>
+
+      <div class="announcements">
+        <h2>Announcements</h2>
+        <p>Attention Faculty: Midterm grades are due by <strong>October 30, 2025</strong>.</p>
+      </div>
+
+      <div class="section">
+        <h2>Class List - BSIT 21020</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Student ID</th>
+              <th>Name</th>
+              <th>Year Level</th>
+              <th>Section</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>24011001</td>
+              <td>Juan Dela Cruz</td>
+              <td>2nd Year</td>
+              <td>21022</td>
+            </tr>
+            <tr>
+              <td>24011002</td>
+              <td>Maria Santos</td>
+              <td>2nd Year</td>
+              <td>21022</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h2>Grade Submission</h2>
+        <form id="gradeForm">
+          <label for="student-id">Student ID:</label>
+          <input type="text" id="student-id" name="student-id" required />
+
+          <label for="grade">Grade:</label>
+          <input type="text" id="grade" name="grade" required />
+
+          <button type="submit">Submit Grade</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================
+       JAVASCRIPT CONNECTION
+  ========================================== -->
+  <script src="system.js"></script>
+</body>
+</html>
